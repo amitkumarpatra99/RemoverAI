@@ -33,6 +33,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-adsense-account" content="ca-pub-8051844487188926" />
+      </head>
       <body className="antialiased bg-[#0f172a] text-white">
         {/* 2. Add Navbar here, above {children} */}
         <Navbar />
