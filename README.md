@@ -18,7 +18,7 @@ npm install
 npm start
 
 ## 🌐 Live Demo
-https://your-username.github.io/your-repo-name
+https://removerai.netlify.app/
 
 ## ✨ Author
 Amit Kumar Patra
