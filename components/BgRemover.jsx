@@ -14,6 +14,14 @@ import {
   Check,
   Split,
   X,
+  Flame,
+  MousePointerClick,
+  Bot,
+  ShieldCheck,
+  Layers,
+  Wand2,
+  CheckCircle,
+  Zap,
 } from "lucide-react";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
@@ -181,8 +189,8 @@ export default function BgRemover() {
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-purple-200">
-            Background Remover
+          <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-purple-200 flex items-center justify-center gap-3">
+            Background Remover <Wand2 className="w-10 h-10 text-purple-200" />
           </h1>
 
           <p className="text-blue-200/70 mt-3 text-lg">
@@ -218,12 +226,20 @@ export default function BgRemover() {
               </div>
 
               <h3 className="text-xl font-semibold text-white mb-2">
-                {isDragging ? "Drop it like it's hot!" : "Upload an Image"}
+                {isDragging ? (
+                  <>
+                    <Flame className="w-6 h-6 text-orange-500 animate-pulse" />
+                    Drop it like it's hot!
+                  </>
+                ) : (
+                  "Upload an Image"
+                )}
               </h3>
 
-              <p className="text-blue-200/60 text-sm">
-                Drag & drop or click to browse (PNG, JPG, WEBP)
-              </p>
+              <div className="flex items-center gap-2 text-blue-200/60 text-sm">
+                <MousePointerClick className="w-4 h-4" />
+                <span>Drag & drop or click to browse (PNG, JPG, WEBP)</span>
+              </div>
             </div>
           )}
 
@@ -251,8 +267,8 @@ export default function BgRemover() {
                     <button
                       onClick={() => setIsComparing(!isComparing)}
                       className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${isComparing
-                          ? "bg-purple-500/20 text-purple-200 border border-purple-500/30"
-                          : "bg-white/5 text-blue-200 hover:bg-white/10 border border-white/10"
+                        ? "bg-purple-500/20 text-purple-200 border border-purple-500/30"
+                        : "bg-white/5 text-blue-200 hover:bg-white/10 border border-white/10"
                         }`}
                     >
                       <Split className="w-4 h-4" />
@@ -296,12 +312,14 @@ export default function BgRemover() {
                         <Loader2 className="w-6 h-6 text-purple-400 animate-pulse" />
                       </div>
                     </div>
-                    <p className="mt-4 text-lg font-medium text-purple-200 animate-pulse">
-                      Simas AI is Thinking...
-                    </p>
-                    <p className="text-sm text-purple-300/60 mt-1">
-                      Removing background securely on device
-                    </p>
+                    <div className="mt-4 flex items-center gap-2 text-lg font-medium text-purple-200 animate-pulse">
+                      <Bot className="w-5 h-5" />
+                      <span>Simas AI is Thinking...</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-sm text-purple-300/60 mt-1">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      <span>Removing background securely on device</span>
+                    </div>
                   </div>
                 ) : (
                   <>
@@ -333,13 +351,15 @@ export default function BgRemover() {
                               alt="Original"
                               className="absolute inset-0 w-full h-full object-contain pointer-events-none"
                             />
-                            <div className="absolute top-4 left-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
+                            <div className="absolute top-4 left-4 bg-black/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm flex items-center gap-1.5">
+                              <ImageIcon className="w-3 h-3" />
                               Original
                             </div>
                           </div>
 
                           {/* Processed Label */}
-                          <div className="absolute top-4 right-4 bg-purple-500/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
+                          <div className="absolute top-4 right-4 bg-purple-500/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm flex items-center gap-1.5">
+                            <Layers className="w-3 h-3" />
                             Removed Background
                           </div>
 
@@ -366,7 +386,8 @@ export default function BgRemover() {
                             />
                           </div>
                           {processedImage && (
-                            <div className="absolute top-4 right-4 bg-purple-500/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
+                            <div className="absolute top-4 right-4 bg-purple-500/50 text-white text-xs px-2 py-1 rounded backdrop-blur-sm flex items-center gap-1.5">
+                              <Wand2 className="w-3 h-3" />
                               Background Removed
                             </div>
                           )}
