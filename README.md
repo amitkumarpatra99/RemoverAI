@@ -1,4 +1,4 @@
-# AI Background Remover 🚀
+# AI Background Remover 
 
 ![AI Background Remover](https://img.shields.io/badge/AI%20Powered-Yes-blueviolet?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
